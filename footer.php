@@ -26,7 +26,11 @@
 				?>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
+	
+	<?php block_template_part( 'footer' ); ?>
+	
 </div><!-- #page -->
+
 
 <?php wp_footer(); ?>
 

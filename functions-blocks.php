@@ -124,4 +124,18 @@ function hybrid_button_styles_variation() {
 			)
 	);
 }
-add_action('init', 'hybrid_button_styles_variation');
+add_action( 'init', 'hybrid_button_styles_variation' );
+
+
+/**
+ * Adds support for block template parts in the theme.
+ *
+ * This function hooks into the 'after_setup_theme' action to add support for
+ * block template parts, allowing the theme to utilize block-based templates.
+ *
+ * @return void
+ */
+function hybrid_add_template_parts_support() {
+	add_theme_support( 'block-template-parts' );
+}
+add_action( 'after_setup_theme', 'hybrid_add_template_parts_support' );
