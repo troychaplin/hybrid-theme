@@ -177,7 +177,7 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 }
 
 // Testing block theme functionality in a classic theme
-include_once get_template_directory() . '/functions-block.php';
+include_once get_template_directory() . '/functions-hybrid.php';
 
 // Testing block support in a classic theme
 include_once get_template_directory() . '/functions-supports.php';
