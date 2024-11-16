@@ -1,6 +1,52 @@
 <?php
 
 /**
+ * Enqueues the block variations script for the block editor.
+ *
+ * This function registers and enqueues a JavaScript file that adds custom block variations
+ * to the WordPress block editor. The script is dependent on the 'wp-blocks', 'wp-dom-ready',
+ * and 'wp-edit-post' scripts provided by WordPress.
+ *
+ * @since 1.0.0
+ */
+function hybrid_theme_enqueues() {
+	wp_enqueue_script(
+			'hybrid-theme-scripts',
+			get_template_directory_uri() . '/assets/js/hybrid-theme.js',
+			array( 'wp-blocks', 'wp-dom-ready', 'wp-edit-post' ),
+			null,
+			true
+	);
+}
+add_action( 'enqueue_block_editor_assets', 'hybrid_theme_enqueues' );
+
+
+/**
+ * Enqueues the block styles for the Hybrid theme.
+ *
+ * This function registers and enqueues the main stylesheet for the Hybrid theme,
+ * ensuring that the stylesheet is loaded with a version number based on the file's
+ * last modification time. This helps with cache busting.
+ *
+ * Additionally, it adds the stylesheet to the block editor to ensure that the
+ * editor styles match the front-end styles.
+ *
+ * @return void
+ */
+function hybrid_theme_enqueue_styles() {
+	wp_enqueue_style(
+			'hybrid-theme-styles',
+			get_template_directory_uri() . '/assets/css/hybrid-theme.css',
+			array(),
+			filemtime( get_template_directory() . '/assets/css/hybrid-theme.css' )
+	);
+
+	add_editor_style( '/assets/css/hybrid-theme.css' );
+}
+add_action( 'enqueue_block_assets', 'hybrid_theme_enqueue_styles' );
+
+
+/**
  * Registers a custom block pattern for the Hybrid theme.
  *
  * This function checks if the `register_block_pattern` function exists and, if so,
@@ -58,52 +104,6 @@ function hybrid_register_pattern_categories() {
 	}
 }
 add_action( 'init', 'hybrid_register_pattern_categories' );
-
-
-/**
- * Enqueues the block variations script for the block editor.
- *
- * This function registers and enqueues a JavaScript file that adds custom block variations
- * to the WordPress block editor. The script is dependent on the 'wp-blocks', 'wp-dom-ready',
- * and 'wp-edit-post' scripts provided by WordPress.
- *
- * @since 1.0.0
- */
-function hybrid_theme_enqueues() {
-	wp_enqueue_script(
-			'hybrid-theme-scripts',
-			get_template_directory_uri() . '/js/hybrid-theme.js',
-			array( 'wp-blocks', 'wp-dom-ready', 'wp-edit-post' ),
-			null,
-			true
-	);
-}
-add_action( 'enqueue_block_editor_assets', 'hybrid_theme_enqueues' );
-
-
-/**
- * Enqueues the block styles for the Hybrid theme.
- *
- * This function registers and enqueues the main stylesheet for the Hybrid theme,
- * ensuring that the stylesheet is loaded with a version number based on the file's
- * last modification time. This helps with cache busting.
- *
- * Additionally, it adds the stylesheet to the block editor to ensure that the
- * editor styles match the front-end styles.
- *
- * @return void
- */
-function hybrid_theme_enqueue_styles() {
-	wp_enqueue_style(
-			'hybrid-theme-styles',
-			get_template_directory_uri() . '/css/hybrid-theme.css',
-			array(),
-			filemtime( get_template_directory() . '/css/hybrid-theme.css' )
-	);
-
-	add_editor_style( '/css/hybrid-theme.css' );
-}
-add_action( 'enqueue_block_assets', 'hybrid_theme_enqueue_styles' );
 
 
 /**
