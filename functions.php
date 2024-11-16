@@ -176,5 +176,11 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
-include_once get_template_directory() . '/functions-block-theme.php';
+// Testing block theme functionality in a classic theme
+include_once get_template_directory() . '/functions-block.php';
+
+// Testing block support in a classic theme
+include_once get_template_directory() . '/functions-supports.php';
+
+// Testing snippets for contribution to the WordPress Dev Blog
 include_once get_template_directory() . '/functions-snippets.php';

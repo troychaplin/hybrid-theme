@@ -43,4 +43,4 @@ function reorder_block_categories( $categories ) {
 	return array_merge( $new_category_order, $remaining_core_categories );
 }
 
-add_filter( 'block_categories_all', 'reorder_block_categories' );
+add_filter( 'block_categories_all', 'example_block_category', 10, 2 );

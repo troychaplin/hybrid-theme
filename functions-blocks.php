@@ -118,8 +118,8 @@ function hybrid_button_styles_variation() {
 	register_block_style(
 			'core/button',
 			array(
-					'name'  => 'blue-button',
-					'label' => __('Blue', 'hybrid-theme'),
+					'name'         => 'blue-button',
+					'label'        => __('Blue', 'hybrid-theme'),
 					'inline_style' => '.wp-block-button.is-style-blue-button .wp-block-button__link { background-color: #0743a3; color: #ffffff; }',
 			)
 	);
