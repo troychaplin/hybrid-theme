@@ -1,0 +1,8 @@
+/* General container styling */
+.wp-block.is-selected {
+	background: rgba(#078d34, 0.3);
+}
+
+.testing-class {
+	background: rgba(#078d34, 0.3);
+}
